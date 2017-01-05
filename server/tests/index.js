@@ -3,10 +3,11 @@ const stores = require('../../stores');
 module.exports = (app) => {
 	app.get('/test/single', (req, res) => {
 		// const uri = 'http://www.kabum.com.br/produto/80660/placa-mae-asus-p-intel-lga-1151-matx-b150m-pro-ga-';
-		const uri2 = 'http://www.terabyteshop.com.br/produto/6944/placa-de-video-xfx-radeon-r7-250x-2gb-gddr3-r7-250x-cgf4-pci-exp';
+		// const uri2 = 'http://www.terabyteshop.com.br/produto/6944/placa-de-video-xfx-radeon-r7-250x-2gb-gddr3-r7-250x-cgf4-pci-exp';
 		// const uri3 = 'http://www.pichau.com.br/placa-de-video-xfx-radeon-rx-470-4g-gddr5-oc-rx-470p4sfd5';
+		const uri4 = 'http://www.balaodainformatica.com.br/Produto/107959/iPhone-7-Apple-32GB-Prateado-iOS-10-4G-Tela-retina-47-Processador-A10-Camera-12MP-Filma-em-4k';
 
-		stores.createItemFromStore(uri2, 'terabyte').then(item => res.send(item));
+		stores.createItemFromStore(uri4, 'balaodainformatica').then(item => res.send(item));
 	});
 
 	app.get('/test/multiple', (req, res) => {
@@ -35,7 +36,14 @@ module.exports = (app) => {
 			'http://www.pichau.com.br/eletronicos/consoles-e-acessorios/joystick-usb-logitech-extreme-3d-pro-box',
 		];
 
+		const uris4 = [
+			'http://www.balaodainformatica.com.br/Produto/106231/Seminovo-Smartphone-Motorola-Moto-G-3-Geracao-Colors-XT1543-Quad-Core-Android-511-Tela-50-16GB-13MP-4G-Cor-Preto',
+			'http://www.balaodainformatica.com.br/Produto/107958',
+			'http://www.balaodainformatica.com.br/Produto/108056',
+			'http://www.balaodainformatica.com.br/Produto/91832/Processador-Intel-i3-6100-37GHZ-3Mb-G6-LGA-1151-Skylake-1659',
+		];
 
-		stores.createMultipleItemsFromStore(uris3, 'pichau').then(items => res.send(items));
+
+		stores.createMultipleItemsFromStore(uris4, 'balaodainformatica').then(items => res.send(items));
 	});
 };

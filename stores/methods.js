@@ -10,22 +10,25 @@ const config = {
 	kabum: require('./kabum/config'),
 	terabyte: require('./terabyte/config'),
 	pichau: require('./pichau/config'),
+	balaodainformatica: require('./balaodainformatica/config'),
 };
 
 function StoreMethods() {}
 
 function getName($, store) {
+	if (store.vendor.name === 'Balão da Informática') {
+		return $(store.name)[0].children[0].data.trim();
+	}
+
 	return $(store.name).text().trim();
 }
 
 function getCurrentPrices($, store) {
-	let regularPrice;
+	let regularPrice = priceParse($(store.regularPrice).text().trim()).toString();
 	const discountPrice = priceParse($(store.discountPrice).text().trim()).toString();
 
 	if (store.vendor.name === 'TerabyteShop') {
 		regularPrice = terabyteParse($(store.regularPrice).text().trim().toString());
-	} else {
-		regularPrice = priceParse($(store.regularPrice).text().trim()).toString();
 	}
 
 	const json = {
@@ -38,6 +41,10 @@ function getCurrentPrices($, store) {
 
 function getThumbnail($, store) {
 	const element = $(store.thumbnail)[0];
+
+	if (store.vendor.name === 'Balão da Informática') {
+		return $(store.thumbnail)[0].attribs['data-zoom-image'] || $(store.backupThumbnail)[0].attribs['data-zoom-image'];
+	}
 
 	if (element) {
 		return element.attribs.src;
