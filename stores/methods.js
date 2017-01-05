@@ -11,6 +11,7 @@ const config = {
 	terabyte: require('./terabyte/config'),
 	pichau: require('./pichau/config'),
 	balaodainformatica: require('./balaodainformatica/config'),
+	americanas: require('./americanas/config'),
 };
 
 function StoreMethods() {}
@@ -43,7 +44,7 @@ function getThumbnail($, store) {
 	const element = $(store.thumbnail)[0];
 
 	if (store.vendor.name === 'Balão da Informática') {
-		return $(store.thumbnail)[0].attribs['data-zoom-image'] || $(store.backupThumbnail)[0].attribs['data-zoom-image'];
+		return element.attribs['data-zoom-image'] || $(store.backupThumbnail)[0].attribs['data-zoom-image'];
 	}
 
 	if (element) {
