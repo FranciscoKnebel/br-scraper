@@ -3,18 +3,17 @@
 const request = require('request-promise');
 const options = require('./options');
 const isFunction = require('../modules/isFunction');
-
-const kabum = require('./kabum');
+const methods = require('./methods');
 
 function Stores() {}
 
-function getHTML(uri) {
-	return request(options(uri)); // then()
+function getHTML(uri, store) {
+	return request(options(uri, store)); // then()
 }
 
 function createMultipleItemsFromStore(uris, store, callback) {
-	const promise = Promise.all(uris.map(uri => getHTML(uri)))
-		.then(bodies => bodies.map($ => this[store].newItem($)))
+	const promise = Promise.all(uris.map(uri => getHTML(uri, store)))
+		.then(bodies => bodies.map(($, index) => methods.newItem($, uris[index], store)))
 		.then(items => items.map((item, index) => {
 			item.uri = uris[index];
 			return item;
@@ -30,8 +29,8 @@ function createMultipleItemsFromStore(uris, store, callback) {
 }
 
 function createItemFromStore(uri, store, callback) {
-	const promise = getHTML(uri)
-		.then($ => this[store].newItem($))
+	const promise = getHTML(uri, store)
+		.then($ => methods.newItem($, uri, store))
 		.then((item) => {
 			item.uri = uri;
 			return item;
@@ -50,7 +49,6 @@ Stores.prototype.getHTML = getHTML;
 Stores.prototype.createItemFromStore = createItemFromStore;
 Stores.prototype.createMultipleItemsFromStore = createMultipleItemsFromStore;
 
-// Stores
-Stores.prototype.kabum = kabum;
+Stores.prototype.methods = methods;
 
 module.exports = exports = new Stores();

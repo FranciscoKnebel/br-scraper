@@ -1,11 +1,14 @@
 const cheerio = require('cheerio');
 
-module.exports = (uri) => {
+module.exports = (uri, store) => {
 	const obj = {
 		uri,
 		transform: body => cheerio.load(body),
-		encoding: 'binary',
 	};
+
+	if (store === 'kabum') {
+		obj.encoding = 'binary';
+	}
 
 	return obj;
 };
