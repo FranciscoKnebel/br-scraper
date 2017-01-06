@@ -1,12 +1,12 @@
 {
   "name": "br-scraper",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "Brazilian electronic store web scrapping utility.",
   "main": "index.js",
   "scripts": {
     "lint": "npm run lint-js",
-		"lint-js": "./node_modules/.bin/eslint public/js/*.js server/**/*.js tasks/**/*.js *.js",
-		"lint-js-fix": "./node_modules/.bin/eslint public/js/*.js server/**/*.js tasks/**/*.js *.js --fix",
+    "lint-js": "eslint public/js/*.js server/**/*.js tasks/**/*.js *.js",
+    "lint-js-fix": "eslint public/js/*.js server/**/*.js tasks/**/*.js *.js --fix",
     "start": "node index.js",
     "precommit": "npm run lint",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,7 +18,6 @@
   "keywords": [
     "brasil",
     "web",
-    "web",
     "scraper",
     "scrapping"
   ],
@@ -29,31 +28,25 @@
   },
   "homepage": "https://github.com/franciscoknebel/br-scraper#readme",
   "dependencies": {
-    "async": "^2.0.1",
     "body-parser": "^1.15.2",
     "cheerio": "^0.22.0",
     "compression": "^1.6.2",
     "dotenv": "^2.0.0",
     "ejs": "^2.5.1",
     "express": "^4.14.0",
-    "fs": "0.0.1-security",
-    "helmet": "^2.1.2",
-    "iconv-lite": "^0.4.15",
+    "fs": "0.0.2",
+    "helmet": "^3.3.0",
     "morgan": "^1.7.0",
-    "parse-price": "^1.1.3",
     "path": "^0.12.7",
-    "price-parse": "^1.0.2",
     "request": "^2.79.0",
     "request-promise": "^4.1.1"
   },
   "devDependencies": {
     "eslint": "^3.8.0",
-    "eslint-config-airbnb": "^12.0.0",
-    "eslint-plugin-import": "^1.16.0",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.1",
-    "gulp": "^3.9.1",
-    "husky": "^0.11.9",
-    "sass-lint": "^1.9.1"
+    "husky": "^0.12.0"
   }
 }
