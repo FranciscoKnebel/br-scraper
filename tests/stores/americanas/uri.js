@@ -1,0 +1,1 @@
+module.exports = 'http://www.americanas.com.br/produto/127531749/smartphone-motorola-moto-g-3-geracao-dual-chip-android-5.1-tela-5-16gb-camera-13mp-preto-3-capas?condition=NEW&hl=lower&oferta=3132373533313735372e30303737363537343030303636302e4e455';

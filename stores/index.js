@@ -13,11 +13,7 @@ function getHTML(uri, store) {
 
 function createMultipleItemsFromStore(uris, store, callback) {
 	const promise = Promise.all(uris.map(uri => getHTML(uri, store)))
-		.then(bodies => bodies.map(($, index) => methods.newItem($, uris[index], store)))
-		.then(items => items.map((item, index) => {
-			item.uri = uris[index];
-			return item;
-		}));
+		.then(bodies => bodies.map(($, index) => methods.newItem($, uris[index], store)));
 
 	if (callback && isFunction(callback)) {
 		promise
@@ -30,11 +26,7 @@ function createMultipleItemsFromStore(uris, store, callback) {
 
 function createItemFromStore(uri, store, callback) {
 	const promise = getHTML(uri, store)
-		.then($ => methods.newItem($, uri, store))
-		.then((item) => {
-			item.uri = uri;
-			return item;
-		});
+		.then($ => methods.newItem($, uri, store));
 
 	if (callback && isFunction(callback)) {
 		promise

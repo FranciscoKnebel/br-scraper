@@ -1,7 +1,7 @@
 module.exports = {
 	vendor: {
 		name: 'Americanas',
-		thumbnail: '/img/vendor/americanas.png',
+		thumbnail: '/img/vendor/americanas.jpg',
 		id: '00000004',
 	},
 	name: '.product-name',
