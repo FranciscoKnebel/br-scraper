@@ -18,7 +18,6 @@ module.exports = (app) => {
 			return res.send('Invalid name or store not yet supported.');
 		}
 
-		console.log(scraper);
 		scraper.createItemFromStore(stores[store].uri, store).then(item => res.send(item));
 	});
 

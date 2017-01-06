@@ -26,7 +26,83 @@ Include it in your project:
 const scraper = require('br-scraper');
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+Now you can start querying products.
+
+---
+
+### Methods
+
+All methods support both promises and callbacks, so it is up to user preference on which way to use.
+
+#### createItemFromStore
+
+createItemFromStore will generate a new item, containing the following items:
+
+-	**vendor** *(the name of the store in which the query was done)*
+-	**name** *(the name of the product according to the store)*
+-	**regularPrice** *(the regular price of the item)*
+-	**discountPrice** *(the discount price, normally from paying in full)*
+-	**thumbnail** *(an image describing the product)*
+-	**uri** *(the link passed to query this item)*
+-	**created_at** *(a Date object, to describe when the item was created)*
+
+Example usage:
+```
+const obj = {
+	store: 'kabum',
+	uri: 'http://www.kabum.com.br/produto/55934/cartucho-de-tinta-hp-662-preto-cz103ab',
+};
+
+scraper.createItemFromStore(obj.uri, obj.store).then(item => console.log(item));
+
+scraper.createItemFromStore(obj.uri, obj.store, (error, item) => {
+	if (error) {
+		console.log(error);
+	} else {
+		console.log(item);
+	}
+}
+
+```
+
+Expected item response:
+```
+{
+	"vendor": "KaBuM!",
+	"name": "Cartucho de Tinta HP 662 Preto CZ103AB",
+	"regularPrice": "32,82",
+	"discountPrice": "27,90",
+	"thumbnail": "http://static4.kabum.com.br/produtos/fotos/55934/55934_index_g.jpg",
+	"uri": "http://www.kabum.com.br/produto/55934/cartucho-de-tinta-hp-662-preto-cz103ab",
+	"created_at": "2017-01-06T03:48:20.211Z"
+}
+```
+
+------
+
+#### createMultipleItemsFromStore
+
+createMultipleItemsFromStore functions similarly to createItemFromStore, but receives an array of URIs as the first parameter, so you can query multiple products from the same store.
+
+```
+const uris = [
+	'http://www.kabum.com.br/produto/80660/placa-mae-asus-p-intel-lga-1151-matx-b150m-pro-ga-',
+	'http://www.kabum.com.br/produto/59210/drive-lg-gravador-dvd-rw-24x-sata-preto-gh24nsc0',
+	'http://www.kabum.com.br/produto/55934/cartucho-de-tinta-hp-662-preto-cz103ab',
+];
+
+scraper.createMultipleItemsFromStore(uris, 'kabum').then(items => console.log(items));
+
+scraper.createMultipleItemsFromStore(uris, 'kabum', (error, items) => {
+	if (error) {
+		console.log(error);
+	} else {
+		console.log(items);
+	}
+});
+```
+
+
 
 ---
 

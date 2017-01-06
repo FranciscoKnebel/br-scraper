@@ -51,7 +51,7 @@ function getThumbnail($, store) {
 		return element.attribs.src;
 	}
 
-	const backup = $(config.backupThumbnail)[0];
+	const backup = $(store.backupThumbnail)[0];
 	if (backup) {
 		return backup.attribs.src;
 	}
