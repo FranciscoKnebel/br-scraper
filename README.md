@@ -1,4 +1,5 @@
-# BR Scraper
+# BR Scraper [![Flag](public/img/icons/brazil.gif)]()
+
 [![NPM version](https://badge.fury.io/js/br-scraper.svg)](https://github.com/FranciscoKnebel/br-scraper)
 [![NPM downloads](https://img.shields.io/npm/dt/br-scraper.svg?style=flat-square)]()
 [![Issues](https://img.shields.io/github/issues-raw/FranciscoKnebel/br-scraper.svg?style=flat-square)]()
