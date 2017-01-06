@@ -12,7 +12,7 @@ module.exports = (app) => {
 	});
 
 	app.get('/test/multiple', (req, res) => {
-		/*const uris = [
+		/* const uris = [
 			'http://www.kabum.com.br/produto/80660/placa-mae-asus-p-intel-lga-1151-matx-b150m-pro-ga-',
 			'http://www.kabum.com.br/produto/59210/drive-lg-gravador-dvd-rw-24x-sata-preto-gh24nsc0',
 			'http://www.kabum.com.br/produto/55934/cartucho-de-tinta-hp-662-preto-cz103ab',
@@ -29,7 +29,7 @@ module.exports = (app) => {
 			'http://www.terabyteshop.com.br/produto/6944/placa-de-video-xfx-radeon-r7-250x-2gb-gddr3-r7-250x-cgf4-pci-exp',
 			'http://www.terabyteshop.com.br/produto/6949/placa-de-video-xfx-radeon-rx-470-4gb-rx-470p4sfd5-gddr5-pci-exp',
 		];
-*/
+
 		const uris3 = [
 			'http://www.pichau.com.br/placa-de-video-xfx-radeon-rx-470-4g-gddr5-oc-rx-470p4sfd5',
 			'http://www.pichau.com.br/perifericos/mouse/mouse-gamer-thermaltake-level-10m-white-edition-mo-ltm009dtj-box',
@@ -43,6 +43,8 @@ module.exports = (app) => {
 			'http://www.balaodainformatica.com.br/Produto/108056',
 			'http://www.balaodainformatica.com.br/Produto/91832/Processador-Intel-i3-6100-37GHZ-3Mb-G6-LGA-1151-Skylake-1659',
 		];
+
+		*/
 
 		const uris5 = [
 			'http://www.americanas.com.br/produto/127531749/smartphone-motorola-moto-g-3-geracao-dual-chip-android-5.1-tela-5-16gb-camera-13mp-preto-3-capas?condition=NEW&hl=lower&oferta=3132373533313735372e30303737363537343030303636302e4e4557',

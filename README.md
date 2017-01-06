@@ -1,9 +1,9 @@
 # BR Scraper [![Flag](public/img/icons/brazil.gif)]()
 
-[![NPM version](https://badge.fury.io/js/br-scraper.svg)](https://github.com/FranciscoKnebel/br-scraper)
-[![NPM downloads](https://img.shields.io/npm/dt/br-scraper.svg?style=flat-square)]()
-[![Issues](https://img.shields.io/github/issues-raw/FranciscoKnebel/br-scraper.svg?style=flat-square)]()
-[![license](https://img.shields.io/github/license/FranciscoKnebel/br-scraper.svg?style=flat-square)]()
+[![NPM version](https://badge.fury.io/js/br-scraper.svg)](https://www.npmjs.com/package/br-scraper)
+[![NPM downloads](https://img.shields.io/npm/dt/br-scraper.svg?style=flat-square)](https://www.npmjs.com/package/br-scraper)
+[![Issues](https://img.shields.io/github/issues-raw/FranciscoKnebel/br-scraper.svg?style=flat-square)](https://github.com/FranciscoKnebel/br-scraper/issues)
+[![license](https://img.shields.io/github/license/FranciscoKnebel/br-scraper.svg?style=flat-square)](https://github.com/FranciscoKnebel/br-scraper/blob/master/LICENSE)
 
 Brazilian electronic store web scrapping utility.
 
