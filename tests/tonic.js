@@ -1,4 +1,7 @@
 /* eslint import/no-unresolved: 0 */
+/* eslint import/no-extraneous-dependencies: 0 */
+
+'use strict';
 
 const scraper = require('br-scraper');
 

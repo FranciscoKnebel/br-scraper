@@ -7,10 +7,10 @@
     "lint": "npm run lint-js",
     "lint-js": "eslint public/js/*.js server/**/*.js tasks/**/*.js *.js",
     "lint-js-fix": "eslint public/js/*.js server/**/*.js tasks/**/*.js *.js --fix",
-    "start": "node tests/index.js",
+    "dev": "node tests/index.js",
     "nodemon": "nodemon tests/index.js",
     "precommit": "npm run lint",
-    "test": "echo \"Error: no test specified. Use npm start and manually test.\" && exit 1"
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -46,5 +46,5 @@
     "eslint-plugin-react": "^6.4.1",
     "husky": "^0.12.0"
   },
-	"tonicExampleFilename": "tests/tonic.js",
+	"tonicExampleFilename": "tests/tonic.js"
 }

@@ -1,6 +1,7 @@
 # BR Scraper [![Flag](public/img/icons/brazil.gif)]()
 
 [![NPM version](https://badge.fury.io/js/br-scraper.svg)](https://www.npmjs.com/package/br-scraper)
+[![Build Status](https://travis-ci.org/FranciscoKnebel/br-scraper.svg?branch=master)](https://travis-ci.org/FranciscoKnebel/br-scraper)
 [![NPM downloads](https://img.shields.io/npm/dt/br-scraper.svg?style=flat-square)](https://www.npmjs.com/package/br-scraper)
 [![Issues](https://img.shields.io/github/issues-raw/FranciscoKnebel/br-scraper.svg?style=flat-square)](https://github.com/FranciscoKnebel/br-scraper/issues)
 [![license](https://img.shields.io/github/license/FranciscoKnebel/br-scraper.svg?style=flat-square)](https://github.com/FranciscoKnebel/br-scraper/blob/master/LICENSE)
@@ -9,11 +10,9 @@ Brazilian electronic store web scrapping utility.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Installing
-
-A step by step series of examples that tell you have to get a development environment running
 
 Install the package from npm:
 ```
@@ -102,8 +101,6 @@ scraper.createMultipleItemsFromStore(uris, 'kabum', (error, items) => {
 });
 ```
 
-
-
 ---
 
 ## Contributing
@@ -125,5 +122,7 @@ See also the list of [contributors](https://github.com/FranciscoKnebel/br-scrape
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ---
+[![forthebadge](http://forthebadge.com/images/badges/gluten-free.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/uses-js.svg)](http://forthebadge.com)
 
-[![forthebadge](http://forthebadge.com/images/badges/uses-js.svg)](http://forthebadge.com) [![forthebadge](http://forthebadge.com/images/badges/gluten-free.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
