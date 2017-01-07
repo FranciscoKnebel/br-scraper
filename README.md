@@ -1,12 +1,16 @@
-# BR Scraper [![Flag](public/img/icons/brazil.gif)]()
+# [![Flag](public/img/icons/brazil.gif)]() BR Scraper [![Flag](public/img/icons/brazil.gif)]()
 
 [![NPM version](https://badge.fury.io/js/br-scraper.svg)](https://www.npmjs.com/package/br-scraper)
 [![Build Status](https://travis-ci.org/FranciscoKnebel/br-scraper.svg?branch=master)](https://travis-ci.org/FranciscoKnebel/br-scraper)
 [![NPM downloads](https://img.shields.io/npm/dt/br-scraper.svg?style=flat-square)](https://www.npmjs.com/package/br-scraper)
 [![Issues](https://img.shields.io/github/issues-raw/FranciscoKnebel/br-scraper.svg?style=flat-square)](https://github.com/FranciscoKnebel/br-scraper/issues)
+
+[![license](https://img.shields.io/badge/GitHub-Repository-green.svg?style=flat-square)](https://github.com/FranciscoKnebel/br-scraper/)
 [![license](https://img.shields.io/github/license/FranciscoKnebel/br-scraper.svg?style=flat-square)](https://github.com/FranciscoKnebel/br-scraper/blob/master/LICENSE)
 
-Brazilian electronic store web scrapping utility.
+Brazilian electronic store web scrapping utility. Scrape the web with just a link and a store name!
+
+For a list of the supported stores, check the [SUPPORTED.md](SUPPORTED.md) file.
 
 ## Getting Started
 

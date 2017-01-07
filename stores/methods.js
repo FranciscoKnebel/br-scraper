@@ -1,10 +1,7 @@
 /* eslint global-require: 0 */
 
-const requestOptions = require('./options');
 const priceParse = require('../modules/priceParse');
 const terabyteParse = require('./terabyte/priceparse');
-
-const request = require('request-promise');
 
 const config = {
 	kabum: require('./kabum/config'),
@@ -77,29 +74,9 @@ function newItem($, uri, store) {
 	return item;
 }
 
-function dailyCheckup(uri, item, store) {
-	request(requestOptions(uri, store))
-	.then(($) => {
-		if (!$) {
-			return 'error';
-		}
-
-		const prices = getCurrentPrices($);
-		item.addDailyPrices(prices);
-
-		return item;
-	})
-	.catch((error) => {
-		console.error(error);
-
-		return error;
-	});
-}
-
 StoreMethods.prototype.getName = getName;
 StoreMethods.prototype.getCurrentPrices = getCurrentPrices;
 StoreMethods.prototype.getThumbnail = getThumbnail;
 StoreMethods.prototype.newItem = newItem;
-StoreMethods.prototype.dailyCheckup = dailyCheckup;
 
 module.exports = exports = new StoreMethods();
