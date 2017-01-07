@@ -14,19 +14,19 @@ const config = {
 function StoreMethods() {}
 
 function getName($, store) {
-	if (store.vendor.name === 'Balão da Informática') {
-		return $(store.name)[0].children[0].data.trim();
+	if (store === 'balaodainformatica') {
+		return $(config[store].name)[0].children[0].data.trim();
 	}
 
-	return $(store.name).text().trim();
+	return $(config[store].name).text().trim();
 }
 
 function getCurrentPrices($, store) {
-	let regularPrice = priceParse($(store.regularPrice).text().trim()).toString();
-	const discountPrice = priceParse($(store.discountPrice).text().trim()).toString();
+	let regularPrice = priceParse($(config[store].regularPrice).text().trim()).toString();
+	const discountPrice = priceParse($(config[store].discountPrice).text().trim()).toString();
 
-	if (store.vendor.name === 'TerabyteShop') {
-		regularPrice = terabyteParse($(store.regularPrice).text().trim().toString());
+	if (store === 'terabyte') {
+		regularPrice = terabyteParse($(config[store].regularPrice).text().trim().toString());
 	}
 
 	const json = {
@@ -38,17 +38,17 @@ function getCurrentPrices($, store) {
 }
 
 function getThumbnail($, store) {
-	const element = $(store.thumbnail)[0];
+	const element = $(config[store].thumbnail)[0];
 
-	if (store.vendor.name === 'Balão da Informática') {
-		return element.attribs['data-zoom-image'] || $(store.backupThumbnail)[0].attribs['data-zoom-image'];
+	if (store === 'balaodainformatica') {
+		return element.attribs['data-zoom-image'] || $(config[store].backupThumbnail)[0].attribs['data-zoom-image'];
 	}
 
 	if (element) {
 		return element.attribs.src;
 	}
 
-	const backup = $(store.backupThumbnail)[0];
+	const backup = $(config[store].backupThumbnail)[0];
 	if (backup) {
 		return backup.attribs.src;
 	}
@@ -57,9 +57,9 @@ function getThumbnail($, store) {
 }
 
 function newItem($, uri, store) {
-	const name = getName($, config[store]);
-	const prices = getCurrentPrices($, config[store]);
-	const thumbnail = getThumbnail($, config[store]);
+	const name = getName($, store);
+	const prices = getCurrentPrices($, store);
+	const thumbnail = getThumbnail($, store);
 
 	const item = {
 		vendor: config[store].vendor.name,

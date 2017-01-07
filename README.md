@@ -81,8 +81,6 @@ Expected item response:
 }
 ```
 
-------
-
 #### createMultipleItemsFromStore
 
 createMultipleItemsFromStore functions similarly to createItemFromStore, but receives an array of URIs as the first parameter, so you can query multiple products from the same store.
@@ -105,8 +103,112 @@ scraper.createMultipleItemsFromStore(uris, 'kabum', (error, items) => {
 });
 ```
 
+#### getHTML
+This is a function called by createItemFromStore and createMultipleItemsFromStore.
+It returns a promise for your requested URI. Needed to do the manual updating methods.
+Two parameters are needed, the first being the URI and the second being the store name.
+
+```
+const store = 'kabum';
+const uri = 'http://www.kabum.com.br/produto/55934/cartucho-de-tinta-hp-662-preto-cz103ab';
+
+const promise = scraper.getHTML(uri, store);
+
+promise.then($ => scraper.methods.newItem($, uri, store))
+		.then(item => console.log(item));
+
+```
+
 ---
 
+#### Manual updating
+If you want, you can call the creation methods separately.
+To call the manual functions, you need to call them from `scraper.methods`.
+
+##### getName($, store)
+
+Gets the name from a getHTML rendered page.
+
+`$` is passed from getHTML and `store` is the chosen store name.
+
+Returns the name of the product defined on the page.
+
+```
+const store = 'kabum';
+const uri = 'http://www.kabum.com.br/produto/55934/cartucho-de-tinta-hp-662-preto-cz103ab';
+
+const promise = scraper.getHTML(uri, store);
+
+promise.then($ => scraper.methods.getName($, store))
+		.then(name => console.log(name));
+
+```
+
+##### getCurrentPrices($, store)
+Gets the current prices from a getHTML rendered page.
+
+`$` is passed from getHTML and `store` is the chosen store name.
+
+Returns an object containing two parameters:
+```
+{
+	regularPrice,
+	discountPrice,
+}
+```
+Both prices are a comma separated price string.
+If no value was found for the price, it will return NaN.
+
+```
+const store = 'kabum';
+const uri = 'http://www.kabum.com.br/produto/55934/cartucho-de-tinta-hp-662-preto-cz103ab';
+
+const promise = scraper.getHTML(uri, store);
+
+promise.then($ => scraper.methods.getCurrentPrices($, store))
+		.then(prices => console.log(prices));
+
+```
+
+##### getThumbnail($, store)
+
+Gets the image thumbnail from a getHTML rendered page.
+
+`$` is passed from getHTML and `store` is the chosen store name.
+
+Returns the image link of the product defined on the page.
+
+```
+const store = 'kabum';
+const uri = 'http://www.kabum.com.br/produto/55934/cartucho-de-tinta-hp-662-preto-cz103ab';
+
+const promise = scraper.getHTML(uri, store);
+
+promise.then($ => scraper.methods.getThumbnail($, store))
+		.then(thumbnail => console.log(thumbnail));
+
+```
+
+##### newItem($, uri, store)
+
+This is the item constructor function. It calls all the getter functions and returns a built item object.
+
+`$` is passed from getHTML, `uri` is the link associated with item and `store` is the chosen store name.
+
+Returns the new item object, as described on the `createItemFromStore` method.
+
+```
+const store = 'kabum';
+const uri = 'http://www.kabum.com.br/produto/55934/cartucho-de-tinta-hp-662-preto-cz103ab';
+
+const promise = scraper.getHTML(uri, store);
+
+promise.then($ => scraper.methods.newItem($, uri, store))
+		.then(item => console.log(item));
+
+```
+
+---
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
