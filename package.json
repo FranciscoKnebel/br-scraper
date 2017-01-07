@@ -1,6 +1,6 @@
 {
   "name": "br-scraper",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Brazilian electronic store web scrapping utility.",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "url": "git+https://github.com/franciscoknebel/br-scraper.git"
   },
   "keywords": [
-		"brazil",
+    "brazil",
     "brasil",
     "web",
     "scraper",
@@ -33,7 +33,7 @@
     "cheerio": "^0.22.0",
     "dotenv": "^2.0.0",
     "path": "^0.12.7",
-		"request": "^2.34",
+    "request": "^2.34",
     "request-promise": "^4.1.1"
   },
   "devDependencies": {
@@ -46,5 +46,5 @@
     "eslint-plugin-react": "^6.4.1",
     "husky": "^0.12.0"
   },
-	"tonicExampleFilename": "tests/tonic.js"
+  "tonicExampleFilename": "tests/tonic.js"
 }
