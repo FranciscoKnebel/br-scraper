@@ -22,21 +22,40 @@ function getName($, store) {
 }
 
 function getCurrentPrices($, store) {
-	let regularPrice = priceParse($(config[store].regularPrice).text().trim()).toString();
-	let discountPrice = priceParse($(config[store].discountPrice).text().trim()).toString();
+	const rp = $(config[store].regularPrice);
+	const dp = $(config[store].discountPrice);
 
-	if (store === 'terabyte') {
-		regularPrice = terabyteParse($(config[store].regularPrice).text().trim().toString());
+	let regularPrice;
+	let discountPrice;
+
+	// regularPrice
+	if (rp.length < 1) {
+		regularPrice = NaN;
+	} else if (store === 'terabyte') {
+		regularPrice = terabyteParse(rp.text().trim().toString());
+	} else {
+		regularPrice = priceParse(rp.text().trim()).toString();
 	}
 
-	if (regularPrice === 'NaN' && store === 'kabum') {
-		regularPrice = priceParse($(config[store].alternate.regularPrice).text().trim()).toString();
+	if (Number.isNaN(regularPrice)) {
+		if (store === 'kabum') {
+			regularPrice = priceParse($(config[store].alternate.regularPrice).text().trim()).toString();
+		}
 	}
 
-	if (discountPrice === 'NaN' && store === 'kabum') {
-		discountPrice = priceParse($(config[store].alternate.discountPrice).text().trim()).toString();
+
+	// discountPrice
+	if (dp.length < 1) {
+		discountPrice = NaN;
+	} else {
+		discountPrice = priceParse(dp.text().trim()).toString();
 	}
 
+	if (Number.isNaN(discountPrice)) {
+		if (store === 'kabum') {
+			discountPrice = priceParse($(config[store].alternate.discountPrice).text().trim()).toString();
+		}
+	}
 
 	const json = {
 		regularPrice,
