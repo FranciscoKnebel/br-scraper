@@ -61,7 +61,6 @@ module.exports = (app) => {
 		}
 
 		scraper.createMultipleItemsFromStore(stores[store].uris, store).then(items => res.send(items));
-		// scraper.createMultipleItemsFromStore(stores[store].uris, store).then(items => res.send(items));
 	});
 
 	app.get('/test/:store/multiple/callback', (req, res) => {
