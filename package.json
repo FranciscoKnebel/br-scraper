@@ -1,6 +1,6 @@
 {
   "name": "br-scraper",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Brazilian electronic store web scrapping utility.",
   "main": "index.js",
   "scripts": {
