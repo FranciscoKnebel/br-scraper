@@ -23,11 +23,20 @@ function getName($, store) {
 
 function getCurrentPrices($, store) {
 	let regularPrice = priceParse($(config[store].regularPrice).text().trim()).toString();
-	const discountPrice = priceParse($(config[store].discountPrice).text().trim()).toString();
+	let discountPrice = priceParse($(config[store].discountPrice).text().trim()).toString();
 
 	if (store === 'terabyte') {
 		regularPrice = terabyteParse($(config[store].regularPrice).text().trim().toString());
 	}
+
+	if (regularPrice === 'NaN' && store === 'kabum') {
+		regularPrice = priceParse($(config[store].alternate.regularPrice).text().trim()).toString();
+	}
+
+	if (discountPrice === 'NaN' && store === 'kabum') {
+		discountPrice = priceParse($(config[store].alternate.discountPrice).text().trim()).toString();
+	}
+
 
 	const json = {
 		regularPrice,

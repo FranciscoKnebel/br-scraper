@@ -1,6 +1,7 @@
 /* eslint global-require: 0 */
 
 const scraper = require('../../stores');
+const executeAllPromises = require('../../modules/executeAllPromises');
 
 const stores = {
 	kabum: require('./kabum'),
@@ -11,6 +12,22 @@ const stores = {
 };
 
 module.exports = (app) => {
+	app.get('/test/all/single', (req, res) => {
+		const promises = Object.keys(stores).map(store =>
+			scraper.createItemFromStore(stores[store].uri, store)
+		);
+
+		executeAllPromises(promises).then(items => res.send(items));
+	});
+
+	app.get('/test/all/multiple', (req, res) => {
+		const promises = Object.keys(stores).map(store =>
+			scraper.createMultipleItemsFromStore(stores[store].uris, store)
+		);
+
+		executeAllPromises(promises).then(items => res.send(items));
+	});
+
 	app.get('/test/:store/single', (req, res) => {
 		const store = req.params.store;
 
@@ -42,7 +59,9 @@ module.exports = (app) => {
 		if (!stores[store]) {
 			return res.send('Invalid name or store not supported.');
 		}
+
 		scraper.createMultipleItemsFromStore(stores[store].uris, store).then(items => res.send(items));
+		// scraper.createMultipleItemsFromStore(stores[store].uris, store).then(items => res.send(items));
 	});
 
 	app.get('/test/:store/multiple/callback', (req, res) => {

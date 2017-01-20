@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "npm run lint-js",
-    "lint-js": "eslint public/js/*.js server/**/*.js tasks/**/*.js *.js",
-    "lint-js-fix": "eslint public/js/*.js server/**/*.js tasks/**/*.js *.js --fix",
+    "lint-js": "eslint modules/**/*.js stores/**/*.js tests/**/*.js public/js/*.js server/**/*.js tasks/**/*.js *.js",
+    "lint-js-fix": "eslint modules/**/*.js stores/**/*.js tests/**/*.js public/js/*.js server/**/*.js tasks/**/*.js *.js --fix",
     "dev": "node tests/index.js",
     "nodemon": "nodemon tests/index.js",
     "precommit": "npm run lint",
@@ -34,7 +34,7 @@
     "dotenv": "^2.0.0",
     "path": "^0.12.7",
     "request": "^2.34",
-    "request-promise": "^4.1.1"
+    "request-promise-native": "^1.0.3"
   },
   "devDependencies": {
     "morgan": "^1.7.0",
