@@ -4,9 +4,10 @@ module.exports = {
 		thumbnail: '/img/vendor/balaodainformatica.jpg',
 		id: '00000003',
 	},
-	name: '#nome h1',
-	regularPrice: '', // not on the DOM rendered by Cherrio.
-	discountPrice: '.avista',
-	thumbnail: '#zoom_01',
-	backupThumbnail: '#zoom_02',
+	name: '.productName',
+	regularPrice: '.skuBestPrice',
+	discountPrice: '', // calculado usando discountPercent.
+	discountPercent: 0.15,
+	thumbnail: '#image-main',
+	backupThumbnail: '#botaoZoom img',
 };

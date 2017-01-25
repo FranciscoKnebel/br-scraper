@@ -1,5 +1,8 @@
 module.exports = (price) => {
-	const splitPrice = String(price).replace(/[R$.]/g, '').match(/-?[\d,.]+/);
+	const splitPrice = String(price).replace(/[R$A-z]/g, '')
+		.match(/-?[\d,.]+/)
+		.toString()
+		.replace(/[.]/, ',');
 
 	if (splitPrice == null) {
 		return NaN;

@@ -43,7 +43,6 @@ function getCurrentPrices($, store) {
 		}
 	}
 
-
 	// discountPrice
 	if (dp.length < 1) {
 		discountPrice = NaN;
@@ -54,6 +53,10 @@ function getCurrentPrices($, store) {
 	if (Number.isNaN(discountPrice)) {
 		if (store === 'kabum') {
 			discountPrice = priceParse($(config[store].alternate.discountPrice).text().trim()).toString();
+		} else if (store === 'balaodainformatica') {
+			console.log(regularPrice);
+			const aux = (regularPrice.replace(/[R$,]/g, '.') * (1 - config[store].discountPercent)).toFixed(2);
+			discountPrice = priceParse(aux).toString();
 		}
 	}
 
