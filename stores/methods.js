@@ -14,10 +14,6 @@ const config = {
 function StoreMethods() {}
 
 function getName($, store) {
-	if (store === 'balaodainformatica') {
-		return $(config[store].name)[0].children[0].data.trim();
-	}
-
 	return $(config[store].name).text().trim();
 }
 
@@ -53,10 +49,20 @@ function getCurrentPrices($, store) {
 	if (Number.isNaN(discountPrice)) {
 		if (store === 'kabum') {
 			discountPrice = priceParse($(config[store].alternate.discountPrice).text().trim()).toString();
-		} else if (store === 'balaodainformatica') {
-			console.log(regularPrice);
-			const aux = (regularPrice.replace(/[R$,]/g, '.') * (1 - config[store].discountPercent)).toFixed(2);
-			discountPrice = priceParse(aux).toString();
+		} else if (store === 'balaodainformatica' && !(Number.isNaN(regularPrice))) {
+			const auxiliarPrice = regularPrice.replace(/[,]/g, '.').split('.');
+			let accumulator = '';
+			for (let i = 0; i < auxiliarPrice.length; i += 1) {
+				if (i < auxiliarPrice.length - 1) {
+					accumulator += auxiliarPrice[i];
+				} else {
+					accumulator = `${accumulator}.${auxiliarPrice[i]}`;
+				}
+			}
+
+			const price = accumulator;
+			const discount = (1 - config[store].discountPercent);
+			discountPrice = priceParse((price * discount).toFixed(2)).toString();
 		}
 	}
 
@@ -72,7 +78,7 @@ function getThumbnail($, store) {
 	const element = $(config[store].thumbnail)[0];
 
 	if (store === 'balaodainformatica') {
-		return element.attribs['data-zoom-image'] || $(config[store].backupThumbnail)[0].attribs['data-zoom-image'];
+		return element.attribs['data-cfsrc'] || element.parent().attribs.href;
 	}
 
 	if (element) {

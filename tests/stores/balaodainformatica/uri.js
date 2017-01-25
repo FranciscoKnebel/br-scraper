@@ -1,1 +1,1 @@
-module.exports = 'http://www.balaodainformatica.com.br/Produto/106231/Seminovo-Smartphone-Motorola-Moto-G-3-Geracao-Colors-XT1543-Quad-Core-Android-511-Tela-50-16GB-13MP-4G-Cor-Preto';
+module.exports = 'http://www.balaodainformatica.com.br/netbook-asus-eeepc1005ha-m-blue-com-processador-intel-atom-n270-1-ref12565/p';
