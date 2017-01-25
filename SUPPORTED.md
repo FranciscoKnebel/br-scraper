@@ -7,10 +7,10 @@
 
 | Store                                                         | Name           			| Support       	 | Updated  |
 | ------------------------------------------------------------- |:-------------------:|:----------------:| --------:|
-| [KaBuM!](http://www.kabum.com.br/)        										| kabum          			| Full         |    0.0.5 |
-| [TerabyteShop](http://www.terabyteshop.com.br/)              	| terabyte       			| Full         |    0.0.5 |
+| [KaBuM!](http://www.kabum.com.br/)        										| kabum          			| Full         		 |    0.0.5 |
+| [TerabyteShop](http://www.terabyteshop.com.br/)              	| terabyte       			| Full         		 |    0.0.5 |
 | [Pichau](http://www.pichau.com.br/)	                  				| pichau         			| Full	           |    0.0.1 |
-| [Balão da Informática](http://www.balaodainformatica.com.br/)	| balaodainformatica  | Partial*       	 |    0.0.1 |
+| [Balão da Informática](http://www.balaodainformatica.com.br/)	| balaodainformatica  | Outdated       	 |    0.0.1 |
 | [Americanas](http://www.americanas.com.br/)	                  | americanas         	| Full	           |    0.0.1 |
 
 ### Support types:
