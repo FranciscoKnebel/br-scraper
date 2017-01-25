@@ -1,5 +1,11 @@
 # Version Changelog
 
+### 0.0.6
+#### - Fix outdated config for balaodainformatica
+Needed to change options in store config file.
+Needed to updated price method for store.
+New config doesn't have regularPrice store, so a function was added to simulate it.
+
 ### 0.0.5
 #### - Kabum alternate promotion page pricing fix.
 Page link was redirected to another page via a meta tag.
