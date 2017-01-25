@@ -10,7 +10,7 @@
 | [KaBuM!](http://www.kabum.com.br/)        										| kabum          			| Full         		 |    0.0.5 |
 | [TerabyteShop](http://www.terabyteshop.com.br/)              	| terabyte       			| Full         		 |    0.0.5 |
 | [Pichau](http://www.pichau.com.br/)	                  				| pichau         			| Full	           |    0.0.1 |
-| [Balão da Informática](http://www.balaodainformatica.com.br/)	| balaodainformatica  | Outdated       	 |    0.0.1 |
+| [Balão da Informática](http://www.balaodainformatica.com.br/)	| balaodainformatica  | Full*		       	 |    0.0.6 |
 | [Americanas](http://www.americanas.com.br/)	                  | americanas         	| Full	           |    0.0.1 |
 
 ### Support types:
@@ -20,4 +20,4 @@
 - Full
 - Outdated
 
-`*` [Balão da Informática](http://www.balaodainformatica.com.br/) uses JavaScript to obtain the regular product price, making it so that the price is not on the DOM at page load. Due to that, regularPrice is currently not supported, but discountPrice works as expected.
+`*` [Balão da Informática](http://www.balaodainformatica.com.br/) uses JavaScript to obtain the regular product price, making it so that the price is not on the DOM at page load. Due to that, regularPrice is simulated using discountPercent, from the store configuration file.
