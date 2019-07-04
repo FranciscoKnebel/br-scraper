@@ -10,7 +10,9 @@
     "dev": "node tests/index.js",
     "nodemon": "nodemon tests/index.js",
     "precommit": "npm run lint",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -34,7 +36,8 @@
     "dotenv": "^2.0.0",
     "path": "^0.12.7",
     "request": "^2.34",
-    "request-promise-native": "^1.0.3"
+    "request-promise-native": "^1.0.3",
+    "snyk": "^1.192.0"
   },
   "devDependencies": {
     "morgan": "^1.7.0",
@@ -46,5 +49,6 @@
     "eslint-plugin-react": "^6.4.1",
     "husky": "^0.12.0"
   },
-  "tonicExampleFilename": "tests/tonic.js"
+  "tonicExampleFilename": "tests/tonic.js",
+  "snyk": true
 }
